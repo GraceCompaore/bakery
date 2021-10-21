@@ -1,18 +1,24 @@
 import { Link } from 'react-router-dom'
-import './index.css'
+import styled from 'styled-components'
 
+const StyledLink = styled(Link)`
+  padding: 15px;
+  color: #8186a0;
+  text-decoration: none;
+  font-size: 18px;
+`
 function Header() {
-    return (
-        <nav className= 'bp-navbar' >
-            <ul>
-            <li><Link to="/">ACCUEIL</Link></li>
-            <li><Link to="/menu">MENU</Link></li>
-            <li><Link to="/order">COMMANDER</Link></li>
-            <li><Link to="/pertinent">A PROPOS</Link></li>
-            <li><Link to="/contact">CONTACT</Link></li>
-            </ul>
-        </nav>
-    )
+  return (
+    <nav className="bp-navbar">
+      <StyledLink to="/">ACCUEIL</StyledLink>
+      <StyledLink to="/menu">MENU</StyledLink>
+      <StyledLink to="/order">COMMANDER</StyledLink>
+      <StyledLink to="/pertinent">A PROPOS</StyledLink>
+      <StyledLink to="/contact">CONTACT</StyledLink>
+      <StyledLink to="/survey/1">Questionnaire</StyledLink>
+      <StyledLink to="/freelances">Profils</StyledLink>
+    </nav>
+  )
 }
 
 export default Header
