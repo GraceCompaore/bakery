@@ -8,11 +8,20 @@ import Pertinent from './pages/Pertinent/index'
 import Contact from './pages/Contact/index'
 import Header from './components/Header'
 import Error from './components/Error'
+import { createGlobalStyle } from 'styled-components'
 
-
+const GlobalStyle = createGlobalStyle`
+    * {
+      font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    }
+    body {
+      margin: 10px;
+    }
+`
 ReactDOM.render(
   <React.StrictMode>
     <Router>
+      <GlobalStyle />
       <Header />
       <Switch>
         <Route exact path="/">

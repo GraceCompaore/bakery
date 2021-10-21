@@ -15,8 +15,6 @@ function Header() {
       <StyledLink to="/order">COMMANDER</StyledLink>
       <StyledLink to="/pertinent">A PROPOS</StyledLink>
       <StyledLink to="/contact">CONTACT</StyledLink>
-      <StyledLink to="/survey/1">Questionnaire</StyledLink>
-      <StyledLink to="/freelances">Profils</StyledLink>
     </nav>
   )
 }
