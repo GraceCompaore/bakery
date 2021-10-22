@@ -1,6 +1,9 @@
+import PageLayout from "../../components/PageLayout"
+
 function Contact (){
     return (
-        <div> Vous pouvez nous joindre</div>
+        <PageLayout></PageLayout>
+            
     )
 }
 export default Contact

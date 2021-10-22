@@ -1,6 +1,6 @@
 import Card from '../../components/Card'
 import styled from 'styled-components'
-import colors from '../../utils/style/colors'
+import PageLayout from '../../components/PageLayout'
 
 function Menu() {
   const CardsContainer = styled.div`
@@ -21,7 +21,6 @@ const PageTitle = styled.h1`
 
 const PageSubtitle = styled.h2`
   font-size: 20px;
-  color: ${colors.secondary};
   font-weight: 300;
   text-align: center;
   padding-bottom: 30px;
@@ -44,6 +43,7 @@ const PageSubtitle = styled.h2`
 
   return (
       <div>
+        <PageLayout></PageLayout>
         <PageTitle>Un savoir faire artisanal</PageTitle>
         <PageSubtitle>
           Chez Shiny nous réunissons les meilleurs profils pour vous.

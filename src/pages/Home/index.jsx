@@ -1,5 +1,11 @@
+import PageLayout from "../../components/PageLayout"
+
 function Home() {
-  return <div>Page d'accueil 🏡</div>
+  return (
+    <PageLayout>
+     <div>zazrearezarezaezaer</div>
+    </PageLayout>
+  )
 }
 
 export default Home

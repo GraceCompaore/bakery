@@ -1,7 +1,9 @@
-
+import PageLayout from "../../components/PageLayout"
 function Order (){
 return (
-    <div> Tu peux passer tes commandes </div>
+    <div> 
+       <PageLayout></PageLayout> 
+       Tu peux passer tes commandes </div>
 )
 }
 

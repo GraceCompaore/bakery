@@ -6,12 +6,11 @@ import Menu from './pages/Menu/index'
 import Order from './pages/Order/index'
 import Pertinent from './pages/Pertinent/index'
 import Contact from './pages/Contact/index'
-import Header from './components/Header'
 import Error from './components/Error'
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
-    * {
+     {
       font-family: 'Trebuchet MS', Helvetica, sans-serif;
     }
     body {
@@ -22,7 +21,6 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <GlobalStyle />
-      <Header />
       <Switch>
         <Route exact path="/">
           <Home />
