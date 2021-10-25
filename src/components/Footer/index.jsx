@@ -3,26 +3,15 @@ import { useState } from 'react'
 import './Footer.css'
 
 function Footer() {
-  const [inputValue, setInputValue] = useState('')
-
-  function handleInput(e) {
-    setInputValue(e.target.value)
-  }
-
-  function handleBlur() {
-    if (!inputValue.includes('@')) {
-      alert("Attention, il n'y a pas d'@, ceci n'est pas une adresse valide 😥")
-    }
-  }
-
+  
   return (
     <footer className="lmj-footer">
       <div className="lmj-footer-elem">
         <ul className="mentions">
-          <li>Mentions Légales</li>
-          <li>Politiques de cookies</li>
-          <li>Politiques de confidentialité</li>
-          <li>Conditions d'utilisation</li>
+          <li><a href="#">Mentions Légales</a></li>
+          <li><a href="#">Politiques de cookies</a></li>
+          <li><a href="#">Politiques de confidentialité</a></li>
+          <li><a href="#">Conditions d'utilisation</a></li>
         </ul>
       </div>
       <div className="lmj-footer-elem">
@@ -52,30 +41,20 @@ function Footer() {
       <div className="lmj-footer-elem">
         <ul className="adress">
           <li>
-            <a href="#">
-              <i class="fab fa-facebook"></i>
-            </a>
+            YASOMA, la qualité dans le pain
           </li>
           <li>
-            <a href="#">
-              <i class="fab fa-facebook"></i>
-            </a>
+          33 Rue Marcel, 35700 Rennes
           </li>
           <li>
-            <a href="#">
-              <i class="fab fa-facebook"></i>
-            </a>
+            02 00 00 00 00
           </li>
         </ul>
       </div>
 
-      <div className="lmj-footer-elem">Laissez-nous votre mail :</div>
-      <input
-        placeholder="Entrez votre mail"
-        onChange={handleInput}
-        value={inputValue}
-        onBlur={handleBlur}
-      />
+      <div className="footer-bottom">
+        <p>copyright &copy; 2021 YASOMA</p>
+        </div>
     </footer>
   )
 }

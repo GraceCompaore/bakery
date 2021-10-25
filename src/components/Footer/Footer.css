@@ -1,14 +1,84 @@
 .lmj-footer {
-	color: black;
-	padding: 32px;
-	border-top: solid 3px black;
-	display: flex;
-	justify-content: flex-start;
-	flex-direction: column;
-	align-items: center;
-	font-weight: 500;
+  background-color: #453c3c;
+  color: white;
+  display: flex;
+  padding-top: 5px;
+  position: absolute;
+  width: auto;
+  top: 700px;
 }
 
 .lmj-footer-elem {
-	margin-bottom: 10px;
+	display: flex;
+	flex-direction: column;
+	width : 300px;
+ 
+}
+.lmj-footer-elem ul {
+  list-style: none;
+}
+
+/*----------------Mentions-------------*/
+.mentions {
+  flex-direction: row;
+}
+.mentions li {
+  padding: 2px;
+}
+
+.mentions a{
+	text-decoration: none;
+	color: white;
+}
+
+.mentions a:hover {
+	color: aqua;
+}
+/*----------------Socials-network-------------*/
+.socials-network {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socials-network li {
+  padding: 10px;
+}
+
+.socials-network a {
+  text-decoration: none;
+  color: white;
+}
+
+.socials-network a i {
+  font-size: 1.5rem;
+  transition: color 0.4s ease;
+  -webkit-transition: color 0.4s ease;
+  -moz-transition: color 0.4s ease;
+  -ms-transition: color 0.4s ease;
+  -o-transition: color 0.4s ease;
+}
+
+.socials-network a:hover i {
+  color: aqua;
+}
+/*----------------Adress-------------*/
+.adress li {
+  padding: 2px;
+}
+
+/*----------------copyright-------------*/
+.footer-bottom {
+  padding-top: 100px;
+ 
+
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  word-spacing: 2px;
+  text-transform: capitalize;
+padding-right: 150px;
+  text-align: center;
 }
