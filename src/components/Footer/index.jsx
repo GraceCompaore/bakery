@@ -1,4 +1,3 @@
-import { useState } from 'react'
 
 import './Footer.css'
 
@@ -51,10 +50,7 @@ function Footer() {
           </li>
         </ul>
       </div>
-
-      <div className="footer-bottom">
-        <p>copyright &copy; 2021 YASOMA</p>
-        </div>
+        <p className="footer-bottom">copyright &copy; 2021 YASOMA</p>
     </footer>
   )
 }

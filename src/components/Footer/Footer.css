@@ -5,14 +5,13 @@
   padding-top: 5px;
   position: absolute;
   width: auto;
-  top: 700px;
+  top: 800px;
 }
 
 .lmj-footer-elem {
-	display: flex;
-	flex-direction: column;
-	width : 300px;
- 
+  display: flex;
+  flex-direction: column;
+  width: 300px;
 }
 .lmj-footer-elem ul {
   list-style: none;
@@ -26,13 +25,13 @@
   padding: 2px;
 }
 
-.mentions a{
-	text-decoration: none;
-	color: white;
+.mentions a {
+  text-decoration: none;
+  color: white;
 }
 
 .mentions a:hover {
-	color: aqua;
+  color: aqua;
 }
 /*----------------Socials-network-------------*/
 .socials-network {
@@ -71,14 +70,12 @@
 /*----------------copyright-------------*/
 .footer-bottom {
   padding-top: 100px;
- 
-
-}
-
-.footer-bottom p {
+  margin-top: 15px;
+  font-size: 13px;
+  color: white;
   font-size: 14px;
   word-spacing: 2px;
   text-transform: capitalize;
-padding-right: 150px;
+  padding-right: 150px;
   text-align: center;
 }

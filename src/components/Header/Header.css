@@ -1,5 +1,14 @@
 
-.bp-navbar{
+.bp-header{
     background-color: #453C3C;
     padding : 15px;
+    display: flex;
+}
+
+.bp-navbar{
+
+}
+.bp-authenthification{
+    
+
 }
