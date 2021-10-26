@@ -1,42 +1,57 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
+import './FormContact.css'
 
-const App = () => {
-  const [name, setName] = useState("");
-  const [company, setCompany] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+const FormContact = () => {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+
+  const isEmail = () => {
+    let mail = document.getElementById('not-mail');
+    let regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    if(email.match(regex)){
+      mail.style.display = 'none';
+      return true;
+    }
+    else {
+      mail.style.display ='block';
+      mail.style.animation = 'dongle 1s';
+      setTimeout(()=>{
+        mail.style.animation = 'none'; 
+      }, 1000)
+    }
+  }
+
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    sendFeedback("***TEMPLAYE_ID***", {
+    
+  if(name && isEmail() && message) {
+    sendFeedback("template_pd28912", {
       name,
-      company,
-      phone,
       email,
       message,
-    });
-  };
+    })
+  }
+}
 
   const sendFeedback = (templateId, variables) => {
-
     window.emailjs
-      .send("gmail", templateId, variables)
+      .send('gmail', templateId, variables)
       .then((res) => {
-        console.log('success !');
-        setName("");
-        setCompany("");
-        setPhone("");
-        setEmail("");
-        setMessage("");
+        console.log('success !')
+        setName('')
+        setEmail('')
+        setMessage('')
       })
       .catch(
         (err) =>
-          document.querySelector('.form-message').innerHTML =
+          (document.querySelector('.form-message').innerHTML =
             "Une erreur s'est produite, veuillez réessayer.")
-  };
-
+      )
+  }
+  
   return (
     <form className="contact-form">
       <h2>Contactez-nous</h2>
@@ -49,22 +64,6 @@ const App = () => {
           placeholder="nom *"
           value={name}
           autoComplete="off"
-        />
-        <input
-          type="text"
-          id="company"
-          name="company"
-          onChange={(e) => setCompany(e.target.value)}
-          placeholder="société"
-          value={company}
-        />
-        <input
-          type="text"
-          id="phone"
-          name="phone"
-          onChange={(e) => setPhone(e.target.value)}
-          placeholder="téléphone"
-          value={phone}
         />
         <div className="email-content">
           <label id="not-mail">Email non valide</label>
@@ -94,7 +93,7 @@ const App = () => {
       />
       <div className="form-message"></div>
     </form>
-  );
-};
+  )
+}
 
-export default App;
+export default FormContact

@@ -1,58 +1,58 @@
-
-import './Footer.css'
+import './Footer.css';
 
 function Footer() {
-  
   return (
     <footer className="lmj-footer">
       <div className="lmj-footer-elem">
         <ul className="mentions">
-          <li><a href="#">Mentions Légales</a></li>
-          <li><a href="#">Politiques de cookies</a></li>
-          <li><a href="#">Politiques de confidentialité</a></li>
-          <li><a href="#">Conditions d'utilisation</a></li>
+          <li>
+            <a href="#">Mentions Légales</a>
+          </li>
+          <li>
+            <a href="#">Politiques de cookies</a>
+          </li>
+          <li>
+            <a href="#">Politiques de confidentialité</a>
+          </li>
+          <li>
+            <a href="#">Conditions d'utilisation</a>
+          </li>
         </ul>
       </div>
       <div className="lmj-footer-elem">
         <ul className="socials-network">
           <li>
             <a href="#">
-              <i class="fab fa-facebook"></i>
+              <i className="fab fa-facebook"></i>
             </a>
           </li>
           <li>
             <a href="#">
-              <i class="fab fa-instagram"></i>
+              <i className="fab fa-instagram"></i>
             </a>
           </li>
           <li>
             <a href="#">
-              <i class="fab fa-twitter"></i>
+              <i className="fab fa-twitter"></i>
             </a>
           </li>
           <li>
             <a href="#">
-              <i class="fab fa-youtube-square"></i>
+              <i className="fab fa-youtube-square"></i>
             </a>
           </li>
         </ul>
       </div>
       <div className="lmj-footer-elem">
         <ul className="adress">
-          <li>
-            YASOMA, la qualité dans le pain
-          </li>
-          <li>
-          33 Rue Marcel, 35700 Rennes
-          </li>
-          <li>
-            02 00 00 00 00
-          </li>
+          <li>YASOMA, la qualité dans le pain</li>
+          <li>33 Rue Marcel, 35700 Rennes</li>
+          <li>02 00 00 00 00</li>
         </ul>
       </div>
-        <p className="footer-bottom">copyright &copy; 2021 YASOMA</p>
+      <p className="footer-bottom">copyright &copy; 2021 YASOMA</p>
     </footer>
-  )
+  );
 }
 
-export default Footer
+export default Footer;
