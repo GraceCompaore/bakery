@@ -6,13 +6,11 @@
   position: absolute;
   width: 100%;
   top: 800px;
-  height: 22%;
+  height: 24%;
 }
 
 .lmj-footer-elem {
   display: flex;
-  flex-direction: column;
-
 }
 .lmj-footer-elem ul {
   list-style: none;
@@ -67,18 +65,15 @@
 /*----------------Adress-------------*/
 .adress li {
   padding-right: 52px;
-  
 }
 
 /*----------------copyright-------------*/
 .footer-bottom {
   padding-top: 100px;
-  margin-top: 15px;
   font-size: 13px;
   color: white;
   font-size: 14px;
   word-spacing: 2px;
   text-transform: capitalize;
-  padding-right: 150px;
   text-align: center;
 }

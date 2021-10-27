@@ -1,0 +1,25 @@
+.bp-pertinent {
+  display: flex;
+}
+.bp-engagements {
+  flex-direction: column;
+  width: auto;
+}
+
+h2 {
+  width: 100%;
+  text-align: center;
+}
+h4 {
+}
+
+p {
+  width: 80%;
+  text-align: justify;
+}
+
+/*------------------Image-------------*/
+img {
+  padding-top: 50px;
+  width: 600px;
+}

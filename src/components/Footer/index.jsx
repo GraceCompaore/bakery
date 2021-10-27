@@ -50,7 +50,9 @@ function Footer() {
           <li>02 00 00 00 00</li>
         </ul>
       </div>
-      <p className="footer-bottom">copyright &copy; 2021 YASOMA</p>
+      <div>
+        <p className="footer-bottom">copyright &copy; 2021 YASOMA</p>
+      </div>
     </footer>
   );
 }

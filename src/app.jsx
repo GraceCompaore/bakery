@@ -6,13 +6,14 @@ import Contact from './pages/Contact/index';
 import Home from './pages/Home/index';
 import { FilterProvider } from './pages/Menu/context/FilterContext';
 import Menu from './pages/Menu/index';
-import Order from './pages/Order/index';
 import Pertinent from './pages/Pertinent/index';
+import Login from './pages/Login/Login';
+import Inscription from './pages/Inscription/Inscription';
 
 const GlobalStyle = createGlobalStyle`
-     {
+     
       font-family: 'Trebuchet MS', Helvetica, sans-serif;
-    }
+    
     body {
       margin: 10px;
     }
@@ -32,14 +33,17 @@ const App = () => {
               <Menu />
             </FilterProvider>
           </Route>
-          <Route path="/order">
-            <Order />
-          </Route>
           <Route path="/pertinent">
             <Pertinent />
           </Route>
           <Route path="/contact">
             <Contact />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/inscription">
+            <Inscription />
           </Route>
           <Route>
             <Error />

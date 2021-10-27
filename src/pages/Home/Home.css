@@ -1,0 +1,21 @@
+.contenant {
+  position: relative;
+  text-align: center;
+}
+
+h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: white;
+  font-size: 65px;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+
+.contenant img {
+  width: 100%;
+}

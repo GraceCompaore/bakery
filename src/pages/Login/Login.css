@@ -1,0 +1,22 @@
+.Login {
+  display: block;
+  padding: 20px;
+  text-align: center;
+  width: 500px;
+}
+
+.bp-login {
+  padding: 10px;
+}
+
+button {
+  width: 100px;
+  background-color: azure;
+  margin: 10px;
+}
+
+.bp-inscription {
+  padding: 5px;
+  border: 2px solid black;
+  width: 200px;
+}
