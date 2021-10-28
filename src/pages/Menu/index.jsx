@@ -9,11 +9,12 @@ const PageTitle = styled.h1`
   font-size: 30px;
   color: black;
   text-align: center;
-  padding-bottom: 30px;
+  padding-bottom: 500px;
 `;
 
 const PageContentContainer = styled.section`
   display: flex;
+  padding-top: 40px;
 `;
 
 const PageContent = styled.section`
@@ -40,7 +41,7 @@ function Menu() {
     let products = productListMock;
     products = filterByCategory(categories, products);
     products = filterByMinPrice(minPrice, products);
-    products = filterByMaxPrive(maxPrice, products);
+    products = filterByMaxPrice(maxPrice, products);
 
     setProductList(products);
   }, [categories, minPrice, maxPrice]);
@@ -86,7 +87,7 @@ function Menu() {
    * @param {*} products
    * @returns
    */
-  const filterByMaxPrive = (price, products) => {
+  const filterByMaxPrice = (price, products) => {
     if (price) {
       const newProductList = products.filter(
         (product) => product.price <= price

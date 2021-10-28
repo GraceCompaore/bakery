@@ -7,8 +7,9 @@ import Home from './pages/Home/index';
 import { FilterProvider } from './pages/Menu/context/FilterContext';
 import Menu from './pages/Menu/index';
 import Pertinent from './pages/Pertinent/index';
-import Login from './pages/Login/Login';
-import Inscription from './pages/Inscription/Inscription';
+import Login from './pages/Connexion/Login/Login';
+import Inscription from './pages/Connexion/Login/Inscription';
+import Apps from './pages/Connexion/Apps';
 
 const GlobalStyle = createGlobalStyle`
      
@@ -39,12 +40,10 @@ const App = () => {
           <Route path="/contact">
             <Contact />
           </Route>
-          <Route path="/login">
-            <Login />
+          <Route path="/Connexion">
+            <Apps />
           </Route>
-          <Route path="/inscription">
-            <Inscription />
-          </Route>
+
           <Route>
             <Error />
           </Route>
