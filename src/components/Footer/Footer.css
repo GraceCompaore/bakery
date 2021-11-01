@@ -1,4 +1,4 @@
-.lmj-footer {
+.bp-footer {
   background-color: #453c3c;
   color: white;
   display: flex;
@@ -7,10 +7,7 @@
   width: 100%;
 }
 
-.lmj-footer-elem {
-  display: flex;
-}
-.lmj-footer-elem ul {
+.bp-footer-elem ul {
   list-style: none;
 }
 
@@ -67,7 +64,6 @@
 
 /*----------------copyright-------------*/
 .footer-bottom {
-  padding-top: 100px;
   font-size: 13px;
   color: white;
   font-size: 14px;

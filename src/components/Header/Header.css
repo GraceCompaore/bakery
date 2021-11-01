@@ -1,12 +1,13 @@
 .bp-header {
   background-color: #453c3c;
-  padding: 8px;
+  padding: 10px 0px;
+  margin: auto;
   display: flex;
   width: 100%;
-  height: 10%;
 }
 
 .bp-navbar {
+  text-align: center;
 }
 .bp-authenthification {
   padding-left: 45%;

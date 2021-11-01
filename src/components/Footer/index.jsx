@@ -2,8 +2,8 @@ import './Footer.css';
 
 function Footer() {
   return (
-    <footer className="lmj-footer">
-      <div className="lmj-footer-elem">
+    <footer className="bp-footer">
+      <div className="bp-footer-elem">
         <ul className="mentions">
           <li>
             <a href="#">Mentions Légales</a>
@@ -19,7 +19,7 @@ function Footer() {
           </li>
         </ul>
       </div>
-      <div className="lmj-footer-elem">
+      <div className="bp-footer-elem">
         <ul className="socials-network">
           <li>
             <a href="#">
@@ -43,7 +43,7 @@ function Footer() {
           </li>
         </ul>
       </div>
-      <div className="lmj-footer-elem">
+      <div className="bp-footer-elem">
         <ul className="adress">
           <li>YASOMA, la qualité dans le pain</li>
           <li>33 Rue Marcel, 35700 Rennes</li>

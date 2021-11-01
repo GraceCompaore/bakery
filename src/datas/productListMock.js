@@ -1,30 +1,17 @@
-import pain from '../assets/pain.jpg';
-import baguette_tradi from '../assets/baguette_tradi.jpg';
-import chaussons_pommes from '../assets/chaussons_pommes.jpg';
-import croissant from '../assets/croissant.jpg';
-import eclair_chocolat from '../assets/eclair_chocolat.jpeg';
-import flan_coco from '../assets/flan_coco.jpg';
-import moelleux_au_chocolat from '../assets/moelleux_au_chocolat.jpg';
-import pain_chocolat from '../assets/pain_chocolat.png';
-import pain_raisin from '../assets/pain_raisin.jpg';
-import pain_cereales from '../assets/pain_cereales.jpg';
-import tartelettes_aux_fraises from '../assets/tartelettes_aux_fraises.jpg';
-import pain_complet from '../assets/pain_complet.jpg';
-
 const productListMock = [
   {
     name: 'baguette traditionnelle ',
     categoryId: 3,
     id: '1ed',
     price: 15,
-    cover: baguette_tradi,
+    cover: 'https://picsum.photos/300/200?random=1',
   },
   {
     name: 'croissant',
     categoryId: 1,
     id: '2ab',
     price: 16,
-    cover: croissant,
+    cover: 'https://picsum.photos/300/200?random=1',
   },
 
   {
@@ -32,21 +19,21 @@ const productListMock = [
     categoryId: 2,
     id: '3sd',
     price: 9,
-    cover: tartelettes_aux_fraises,
+    cover: 'https://picsum.photos/300/200?random=1',
   },
   {
     name: 'baguette blanche',
     categoryId: 3,
     id: '4kk',
     price: 20,
-    cover: pain,
+    cover: 'https://picsum.photos/300/200?random=1',
   },
   {
     name: 'pain au chocolat',
     categoryId: 1,
     id: '5pl',
     price: 25,
-    cover: pain_chocolat,
+    cover: 'https://picsum.photos/300/200?random=1',
   },
 
   {
@@ -54,21 +41,21 @@ const productListMock = [
     categoryId: 3,
     id: '8fp',
     price: 6,
-    cover: pain_cereales,
+    cover: 'https://picsum.photos/300/200?random=1',
   },
   {
     name: 'pain aux raisins',
     categoryId: 1,
     id: '7ie',
     price: 5,
-    cover: pain_raisin,
+    cover: 'https://picsum.photos/300/200?random=1',
   },
   {
     name: 'Pain complet',
     categoryId: 3,
     id: '9vn',
     price: 8,
-    cover: pain_complet,
+    cover: 'https://picsum.photos/300/200?random=1',
   },
 
   {
@@ -76,28 +63,28 @@ const productListMock = [
     categoryId: 1,
     id: '6uo',
     price: 4,
-    cover: chaussons_pommes,
+    cover: 'https://picsum.photos/300/200?random=1',
   },
   {
     name: 'moelleux chocolat',
     categoryId: 2,
     id: '6ui',
     price: 4,
-    cover: moelleux_au_chocolat,
+    cover: 'https://picsum.photos/300/200?random=1',
   },
   {
     name: 'eclair chocolat',
     categoryId: 2,
     id: '6ul',
     price: 4,
-    cover: eclair_chocolat,
+    cover: 'https://picsum.photos/300/200?random=1',
   },
   {
     name: 'Flan coco',
     categoryId: 2,
     id: '6uv',
     price: 4,
-    cover: flan_coco,
+    cover: 'https://picsum.photos/300/200?random=1',
   },
 ];
 

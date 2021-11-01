@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import PageLayout from '../../components/PageLayout';
+import { CartContext } from '../../core/context/CartContext';
 import productListMock from '../../datas/productListMock';
 import Filter from './components/Filter';
 import { FilterContext } from './context/FilterContext';
@@ -9,12 +10,10 @@ const PageTitle = styled.h1`
   font-size: 30px;
   color: black;
   text-align: center;
-  padding-bottom: 500px;
 `;
 
 const PageContentContainer = styled.section`
   display: flex;
-  padding-top: 40px;
 `;
 
 const PageContent = styled.section`
@@ -26,12 +25,19 @@ const PageContent = styled.section`
 const ProductCard = styled.article`
   width: 300px;
   padding: 8px 12px;
+  margin: 0 8px 16px 8px;
   border: 1px solid black;
+`;
+
+const ProductCover = styled.img`
+  width: 50px;
+  height: 50px;
 `;
 
 function Menu() {
   const [productList, setProductList] = useState([]);
   const { categories, minPrice, maxPrice } = useContext(FilterContext);
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     setProductList(productListMock);
@@ -107,12 +113,20 @@ function Menu() {
             return (
               <ProductCard key={product.id}>
                 <header>
-                  <img src="" alt={product.name} />
+                  <ProductCover src={product.cover} alt={product.name} />
                   <div>{product.name}</div>
                 </header>
                 <p>description here</p>
                 <p>prix: {product.price}</p>
-                <div>Ajouter</div>
+                <div>
+                  <button
+                    onClick={() => {
+                      addToCart(product);
+                    }}
+                  >
+                    Ajouter
+                  </button>
+                </div>
               </ProductCard>
             );
           })}

@@ -1,89 +1,86 @@
-import React, { useState } from 'react'
-import './FormContact.css'
+import emailjs, { init } from 'emailjs-com';
+import React, { useRef, useState } from 'react';
 
-const FormContact = () => {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [message, setMessage] = useState('')
+init('user_32u6RoYbe83EE0LqfkUea');
 
-  const isEmail = () => {
-    let mail = document.getElementById('not-mail');
-    let regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    if(email.match(regex)){
-      mail.style.display = 'none';
-      return true;
-    }
-    else {
-      mail.style.display ='block';
-      mail.style.animation = 'dongle 1s';
-      setTimeout(()=>{
-        mail.style.animation = 'none'; 
-      }, 1000)
-    }
-  }
+const App = () => {
+  const form = useRef();
 
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    
-  if(name && isEmail() && message) {
-    sendFeedback("template_pd28912", {
+    sendFeedback({
       name,
       email,
       message,
-    })
-  }
-}
+    });
+  };
 
-  const sendFeedback = (templateId, variables) => {
-    window.emailjs
-      .send('gmail', templateId, variables)
+  const sendFeedback = (variables) => {
+    emailjs
+      .send('service_uqacw2g', 'template_1xffkez', variables)
       .then((res) => {
-        console.log('success !')
-        setName('')
-        setEmail('')
-        setMessage('')
+        setName('');
+        setEmail('');
+        setMessage('');
+        document.querySelector('.form-message').innerHTML =
+          'Message envoyé avec succès !';
       })
       .catch(
         (err) =>
           (document.querySelector('.form-message').innerHTML =
             "Une erreur s'est produite, veuillez réessayer.")
-      )
-  }
-  
+      );
+  };
+
   return (
-    <form className="contact-form">
+    <form ref={form} className="contact-form">
+      <div className="form-message"></div>
+
       <h2>Contactez-nous</h2>
       <div className="form-content">
-        <input
-          type="text"
-          id="name"
-          name="name"
-          onChange={(e) => setName(e.target.value)}
-          placeholder="nom *"
-          value={name}
-          autoComplete="off"
-        />
-        <div className="email-content">
-          <label id="not-mail">Email non valide</label>
+        <label>
+          Name
           <input
-            type="mail"
-            id="email"
-            name="email"
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="email *"
-            value={email}
+            type="text"
+            id="name"
+            name="name"
+            onChange={(e) => setName(e.target.value)}
+            placeholder="nom *"
+            value={name}
             autoComplete="off"
           />
+        </label>
+
+        <div className="email-content">
+          <label>
+            Email
+            <input
+              type="mail"
+              id="email"
+              name="email"
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="email *"
+              value={email}
+              autoComplete="off"
+            />
+          </label>
         </div>
-        <textarea
-          id="message"
-          name="message"
-          onChange={(e) => setMessage(e.target.value)}
-          placeholder="message *"
-          value={message}
-        />
+
+        <label>
+          Message
+          <textarea
+            id="message"
+            name="message"
+            onChange={(e) => setMessage(e.target.value)}
+            placeholder="message *"
+            value={message}
+          />
+        </label>
       </div>
       <input
         className="button"
@@ -91,9 +88,8 @@ const FormContact = () => {
         value="Envoyer"
         onClick={handleSubmit}
       />
-      <div className="form-message"></div>
     </form>
-  )
-}
+  );
+};
 
-export default FormContact
+export default App;

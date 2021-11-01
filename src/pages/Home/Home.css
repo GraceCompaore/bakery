@@ -1,9 +1,9 @@
-.contenant {
+.home-container {
   position: relative;
   text-align: center;
 }
 
-h1 {
+.home-container h1 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -16,6 +16,6 @@ h1 {
   -o-transform: translate(-50%, -50%);
 }
 
-.contenant img {
+.home-container img {
   width: 100%;
 }
