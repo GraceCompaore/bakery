@@ -1,4 +1,4 @@
-.bp-footer {
+/*.bp-footer {
   background-color: #453c3c;
   color: white;
   display: flex;
@@ -11,7 +11,7 @@
   list-style: none;
 }
 
-/*----------------Mentions-------------*/
+----------------Mentions-------------
 .mentions {
   flex-direction: row;
   padding-left: 22px;
@@ -28,7 +28,7 @@
 .mentions a:hover {
   color: aqua;
 }
-/*----------------Socials-network-------------*/
+/*----------------Socials-network-------------
 .socials-network {
   list-style: none;
   display: flex;
@@ -57,12 +57,12 @@
 .socials-network a:hover i {
   color: aqua;
 }
-/*----------------Adress-------------*/
+/*----------------Adress-------------
 .adress li {
   padding-right: 52px;
 }
 
-/*----------------copyright-------------*/
+/*----------------copyright-------------
 .footer-bottom {
   font-size: 13px;
   color: white;
@@ -71,3 +71,4 @@
   text-transform: capitalize;
   text-align: center;
 }
+*/

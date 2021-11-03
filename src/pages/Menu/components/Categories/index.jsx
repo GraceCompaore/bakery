@@ -20,8 +20,8 @@ function Categories() {
   };
 
   return (
-    <section>
-      <h3>Par catégorie</h3>
+    <section className="">
+      <h3 className="font-semibold font-sans">Par catégorie</h3>
       {categorieMock.map((category) => {
         return (
           <div key={category.id}>

@@ -1,15 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import styled from 'styled-components';
+
 import { CartContext } from '../../core/context/CartContext';
 import './Header.css';
 
-const StyledLink = styled(Link)`
-  padding: 15px;
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-`;
 function Header() {
   const history = useHistory();
   const { cart } = useContext(CartContext);
@@ -31,25 +25,51 @@ function Header() {
 
   return (
     <header>
-      <div className="bp-header">
-        <nav className="bp-navbar">
-          <StyledLink to="/">YASOMA</StyledLink>
-          <StyledLink to="/menu">NOS PRODUITS</StyledLink>
-          <StyledLink to="/pertinent">A PROPOS</StyledLink>
-          <StyledLink to="/contact">CONTACT</StyledLink>
+      <div className="font-serif w-full bg-black	flex flex-row p-8 text-white text-xl">
+        <nav className="space-x-4  ">
+          <Link
+            to="/"
+            className="text-white text-opacity-50 hover:text-white active:text-white focus:text-white visited:text-white"
+          >
+            YASOMA
+          </Link>
+          <Link
+            to="/menu"
+            className="text-white text-opacity-50 hover:text-white focus:text-white"
+          >
+            NOS PRODUITS
+          </Link>
+          <Link
+            to="/pertinent"
+            className="text-white text-opacity-50 hover:text-white focus:text-white"
+          >
+            A PROPOS
+          </Link>
+          <Link
+            to="/contact"
+            className="text-white text-opacity-50 hover:text-white focus:text-white"
+          >
+            CONTACT
+          </Link>
         </nav>
-        <div className="bp-authenthification">
+
+        <div className="spacer"></div>
+
+        <div className="px-8 space-x-4">
           <button
+            className="bg-black px-8 rounded-lg ring  hover:bg-blue-200"
             onClick={() => {
               handleGoToLoginPage();
             }}
           >
             Connexion
           </button>
+
+          <Link to="/cart" className="px-8">
+            <i class="fa fa-shopping-cart"></i>
+            <span>{productCount}</span>
+          </Link>
         </div>
-        <Link to="/cart">
-          panier: <span>{productCount}</span>
-        </Link>
       </div>
     </header>
   );

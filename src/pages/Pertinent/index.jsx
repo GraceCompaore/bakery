@@ -1,15 +1,19 @@
 import PageLayout from '../../components/PageLayout';
-import './Pertinent.css';
 import myimage from './baker.jpg';
 
 function Pertinent() {
   return (
     <PageLayout>
-      <h2>A propos de nous</h2>
-      <section className="bp-pertinent">
-        <div className="bp-engagements">
-          <h4> Nos pains & viennoiseries</h4>
-          <p>
+      <h2 className="font-serif text-black text-3xl text-center p-8 text-lg font-semibold">
+        A propos de nous
+      </h2>
+      <section className="flex flex-row">
+        <div className="">
+          <h4 className="text-black text-2xl p-4 font-semibold">
+            {' '}
+            Nos pains & viennoiseries
+          </h4>
+          <p className="px-8 text-justify">
             Nos pains sont cuits dans des fours à sole de pierre pour garantir
             une qualité optimale. Les farines utilisées sont d’origine
             françaises. Nos viennoiseries (croissants, pains au chocolat, pains
@@ -17,15 +21,18 @@ function Pertinent() {
             viennoiseries est réalisée tout au long de la journée dans tous nos
             restaurants.
           </p>
-          <h4> La qualité</h4>
-          <p>
+          <h4 className="text-black text-2xl p-4 font-semibold"> La qualité</h4>
+          <p className="px-8 text-justify ">
             Groupe familial très attaché aux valeurs paysannes, nous avons
             choisi de valoriser les circuits courts et de privilégier des
             élevages et des chaînes de transformation des plus rigoureux, afin
             de vous garantir des produits de qualité.
           </p>
-          <h4> « Fait sur place » chaque jour</h4>
-          <p>
+          <h4 className="text-black text-2xl p-4 font-semibold">
+            {' '}
+            « Fait sur place » chaque jour
+          </h4>
+          <p className="px-8 text-justify pb-4">
             La majorité de nos produits et recettes sont préparés sur place !
             Tous nos sandwichs, salades et pizzas ainsi que la plupart de nos
             desserts sont préparés ou assemblés dans nos restaurants au plus
@@ -37,8 +44,7 @@ function Pertinent() {
           </p>
         </div>
         <div>
-        
-          <img src={myimage} />
+          <img src={myimage} className="m-12 py-20 max-w-xl" />
         </div>
       </section>
     </PageLayout>

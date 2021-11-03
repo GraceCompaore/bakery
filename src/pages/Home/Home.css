@@ -1,21 +1,10 @@
 .home-container {
-  position: relative;
-  text-align: center;
-}
-
-.home-container h1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  color: white;
-  font-size: 65px;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-}
-
-.home-container img {
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('../../assets/bak.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

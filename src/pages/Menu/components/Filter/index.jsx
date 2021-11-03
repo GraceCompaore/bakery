@@ -21,12 +21,13 @@ const Filter = () => {
   };
 
   return (
-    <Content>
+    <Content className="mx-10 my-32 px-20 border-2 border-black w-44 h-full rounded ">
       <Categories></Categories>
-      <h3>Par tranche de prix</h3>
-      <div>
+      <h3 className="font-semibold font-sans">Par prix</h3>
+      <div className="">
         <label htmlFor="min-price">Min</label>
         <input
+          className="w-32"
           type="number"
           id="min-price"
           placeholder="Min price"
@@ -35,9 +36,10 @@ const Filter = () => {
           }}
         />
       </div>
-      <div>
+      <div className="">
         <label htmlFor="max-price">Max</label>
         <input
+          className="w-32"
           type="number"
           id="max-price"
           placeholder="Max price"

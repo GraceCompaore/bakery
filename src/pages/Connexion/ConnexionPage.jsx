@@ -20,7 +20,7 @@ const ConnexionPage = () => {
 
   return (
     <PageLayout>
-      <div className="root-container">
+      <div className="root-container m-10">
         <div className="box-controller">
           <div
             className={

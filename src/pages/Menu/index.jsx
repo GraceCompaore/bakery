@@ -30,8 +30,8 @@ const ProductCard = styled.article`
 `;
 
 const ProductCover = styled.img`
-  width: 50px;
-  height: 50px;
+  //width: 50px;
+  //height: 50px;
 `;
 
 function Menu() {
@@ -105,21 +105,30 @@ function Menu() {
 
   return (
     <PageLayout>
-      <PageTitle>Un savoir faire artisanal</PageTitle>
-      <PageContentContainer>
+      <PageTitle className="text-black font-semibold">
+        Un savoir faire artisanal
+      </PageTitle>
+      <PageContentContainer className="">
         <Filter></Filter>
-        <PageContent>
+        <PageContent className="m-2">
           {productList.map((product) => {
             return (
-              <ProductCard key={product.id}>
-                <header>
-                  <ProductCover src={product.cover} alt={product.name} />
-                  <div>{product.name}</div>
+              <ProductCard key={product.id} className="rounded">
+                <header className="">
+                  <ProductCover
+                    src={product.cover}
+                    alt={product.name}
+                    className="align-center"
+                  />
+                  <div className="font-serif flex items-center justify-center underline">
+                    {product.name}
+                  </div>
                 </header>
-                <p>description here</p>
-                <p>prix: {product.price}</p>
+                <p className="px-4">Description here</p>
+                <p className="px-4">Prix: {product.price} €</p>
                 <div>
                   <button
+                    className="w-40 flex justify-center rounded-md ring bg-black text-white mx-12 my-2 hover:bg-blue-200 "
                     onClick={() => {
                       addToCart(product);
                     }}

@@ -1,4 +1,4 @@
-.bp-header {
+/*.bp-header {
   background-color: #453c3c;
   padding: 10px 0px;
   margin: auto;
@@ -11,4 +11,9 @@
 }
 .bp-authenthification {
   padding-left: 45%;
+}
+*/
+
+.spacer {
+  flex: 1;
 }
