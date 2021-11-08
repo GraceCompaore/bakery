@@ -9,13 +9,10 @@ import Contact from './pages/Contact/index';
 import Home from './pages/Home/index';
 import { FilterProvider } from './pages/Menu/context/FilterContext';
 import Menu from './pages/Menu/index';
-import Pertinent from './pages/Pertinent/index';
+import About from './pages/About/index';
 
 const GlobalStyle = createGlobalStyle`
     font-family: 'Trebuchet MS', Helvetica, sans-serif;
-    body {
-      margin: 10px;
-    }
 `;
 
 const App = () => {
@@ -33,8 +30,8 @@ const App = () => {
                 <Menu />
               </FilterProvider>
             </Route>
-            <Route path="/pertinent">
-              <Pertinent />
+            <Route path="/about">
+              <About />
             </Route>
             <Route path="/contact">
               <Contact />

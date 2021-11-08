@@ -1,0 +1,11 @@
+.contact .content {
+  flex: 1;
+}
+
+.contact .cover {
+  flex: 1;
+  background-image: url('./pains.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

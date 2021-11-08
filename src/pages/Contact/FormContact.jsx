@@ -1,44 +1,41 @@
 import emailjs, { init } from 'emailjs-com';
 import React, { useRef, useState } from 'react';
+import { useForm } from 'react-hook-form';
 
 init('user_32u6RoYbe83EE0LqfkUea');
 
 const App = () => {
-  const form = useRef();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { isDirty, errors },
+  } = useForm();
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    sendFeedback({
-      name,
-      email,
-      message,
-    });
-  };
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const sendFeedback = (variables) => {
+    const formMessage = document.querySelector('.form-message');
+    setIsSubmitting(true);
+    formMessage.innerHTML = '';
     emailjs
       .send('service_uqacw2g', 'template_1xffkez', variables)
       .then((res) => {
-        setName('');
-        setEmail('');
-        setMessage('');
-        document.querySelector('.form-message').innerHTML =
-          'Message envoyé avec succès !';
+        formMessage.innerHTML = 'Message envoyé avec succès !';
+        reset();
       })
       .catch(
         (err) =>
-          (document.querySelector('.form-message').innerHTML =
+          (formMessage.innerHTML =
             "Une erreur s'est produite, veuillez réessayer.")
-      );
+      )
+      .finally(() => {
+        setIsSubmitting(false);
+      });
   };
 
   return (
-    <form ref={form} className="m-10">
+    <section className="m-10">
       <h2 className="text-black text-2xl font-semibold ">
         Contactez notre boulangerie
       </h2>
@@ -46,50 +43,64 @@ const App = () => {
         E-mail : info@yasoma.fr <br />
         Tél : 02 00 00 00 00 <br /> N'hésitez pas à nous joindre !
       </p>
-      <div className="">
-        <div className=" w-64 m-2">
-          <input
-            className="m-2 w-60 border-2 border-black"
-            type="text"
-            id="name"
-            name="name"
-            onChange={(e) => setName(e.target.value)}
-            placeholder="nom *"
-            value={name}
-            autoComplete="off"
-          />
-        </div>
 
-        <div className=" w-64 m-2">
-          <input
-            className="m-2 w-60 border-2 border-black"
-            type="mail"
-            id="email"
-            name="email"
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="email *"
-            value={email}
-            autoComplete="off"
-          />
+      <p className="form-message"></p>
+
+      <form onSubmit={handleSubmit(sendFeedback)}>
+        <div className="">
+          <div className=" w-64 m-2">
+            <input
+              className="m-2 w-60 border-2 border-black"
+              type="text"
+              id="name"
+              {...register('name', {
+                required: true,
+              })}
+              placeholder="nom *"
+            />
+            <br />
+            {errors.name && isDirty && <small>Le nom est obligatoire</small>}
+          </div>
+
+          <div className=" w-64 m-2">
+            <input
+              className="m-2 w-60 border-2 border-black"
+              type="mail"
+              id="email"
+              {...register('email', {
+                required: true,
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: 'Adresse email invalide',
+                },
+              })}
+              placeholder="email *"
+            />
+            <br />
+            {errors.email && isDirty && <small>{errors.email.message}</small>}
+          </div>
+
+          <div className=" w-64 m-2">
+            <textarea
+              className="m-2 h-20 w-60 border-2 border-black"
+              id="message"
+              {...register('message', { required: true })}
+              placeholder="message *"
+            />
+            <br />
+            {errors.message && isDirty && (
+              <small>Le message est obligatoire</small>
+            )}
+          </div>
         </div>
-        <div className=" w-64 m-2">
-          <textarea
-            className="m-2 h-20 w-60 border-2 border-black"
-            id="message"
-            name="message"
-            onChange={(e) => setMessage(e.target.value)}
-            placeholder="message *"
-            value={message}
-          />
-        </div>
-      </div>
-      <input
-        className="w-36 flex justify-center rounded-md ring bg-black text-white mx-16 my-4 hover:bg-blue-200 "
-        type="button"
-        value="Envoyer"
-        onClick={handleSubmit}
-      />
-    </form>
+        <button
+          className="w-36 flex justify-center rounded-md ring bg-black text-white mx-16 my-4 hover:bg-blue-200 "
+          type="submit"
+        >
+          {isSubmitting ? '...envoi en cours' : 'Envoyer'}
+        </button>
+      </form>
+    </section>
   );
 };
 

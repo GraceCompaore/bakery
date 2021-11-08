@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import PageLayout from '../../components/PageLayout';
+import ProductApi from '../../core/api/product.api';
 import { CartContext } from '../../core/context/CartContext';
 import productListMock from '../../datas/productListMock';
 import Filter from './components/Filter';
@@ -35,11 +36,17 @@ const ProductCover = styled.img`
 `;
 
 function Menu() {
+  const [baseProductList, setBaseroductList] = useState([]);
   const [productList, setProductList] = useState([]);
   const { categories, minPrice, maxPrice } = useContext(FilterContext);
   const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
+    ProductApi.findAll().then((data) => {
+      console.log(data);
+      setBaseroductList(data);
+      // setProductList(data);
+    });
     setProductList(productListMock);
   }, []);
 

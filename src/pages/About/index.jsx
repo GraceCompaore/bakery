@@ -1,14 +1,15 @@
 import PageLayout from '../../components/PageLayout';
-import myimage from './baker.jpg';
+import './About.css';
 
 function Pertinent() {
   return (
     <PageLayout>
-      <h2 className="font-serif text-black text-3xl text-center p-8 text-lg font-semibold">
-        A propos de nous
-      </h2>
-      <section className="flex flex-row">
-        <div className="">
+      <section className="about flex">
+        <div className="content">
+          <h2 className="font-serif text-black text-3xl text-lg font-semibold py-2 px-10">
+            A propos de nous
+          </h2>
+
           <h4 className="text-black text-2xl p-4 font-semibold">
             {' '}
             Nos pains & viennoiseries
@@ -43,8 +44,9 @@ function Pertinent() {
             de tartelette cuits sur place.
           </p>
         </div>
-        <div>
-          <img src={myimage} className="m-12 py-20 max-w-xl" />
+        <div className="cover">
+          &nbsp;
+          {/* <img src={myimage} className="m-12 py-20 max-w-xl" /> */}
         </div>
       </section>
     </PageLayout>
