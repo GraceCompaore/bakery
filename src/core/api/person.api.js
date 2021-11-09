@@ -1,16 +1,17 @@
+import { apiClient } from './api';
+
 export default class PersonApi {
-  static baseUrl = `${apiUrl}/person`;
+  static url = '/person';
 
   static delete(personId) {
-    return fetch(`${PersonApi.baseUrl}/${personId}`, { method: 'DELETE' }).then(
-      (response) => response.json()
-    );
+    return apiSecureClient
+      .delete(`${PersonApi.url}/${personId}`)
+      .then((response) => response.data);
   }
 
   static update(personId, person) {
-    return fetch(`${PersonApi.baseUrl}/${personId}`, {
-      method: 'PUT',
-      body: JSON.stringify(person),
-    }).then((response) => response.json());
+    return apiSecureClient
+      .update(`${PersonApi.url}/${personId}`, JSON.stringify(person))
+      .then((response) => response.data);
   }
 }

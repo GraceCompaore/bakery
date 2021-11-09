@@ -72,7 +72,7 @@ function Header() {
 
           <NavLink activeClassName="text-white" to="/cart" className="px-8">
             <i className="fa fa-shopping-cart"></i>
-            <span>{productCount}</span>
+            <span>Panier : {productCount} </span>
           </NavLink>
         </div>
       </div>

@@ -17,13 +17,14 @@ const CardItem = styled.article`
 `;
 
 const CardItemCover = styled.img`
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
 `;
 
 function Cart() {
   const { cart, removeFromCart } = useContext(CartContext);
   const [totalAmount, setTotalAmount] = useState(0);
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     if (cart) {
@@ -37,8 +38,6 @@ function Cart() {
 
   return (
     <PageLayout>
-      <h1>Mon panier</h1>
-
       {cart.length > 0 ? (
         <>
           <CartItemsContainer>
@@ -49,29 +48,49 @@ function Cart() {
                   alt={item.product.name}
                 />
                 <h1>{item.product.name}</h1>
-                <p>{item.quantity}</p>
-                <div>
+                <div className="flex felx-row m-4">
+                  <p>quantité: {item.quantity} </p> &nbsp;
+                  <p>prix unitaire: {item.product.price} €</p>
+                </div>
+
+                <div className="">
                   <button
+                    className="bg-black text-white  border-2 rounded-md px-2 mx-4"
                     onClick={() => {
                       removeFromCart(item.product);
                     }}
                   >
                     Supprimer
                   </button>
+                  <button
+                    className="bg-white text-black  border-2 rounded-md px-2 mx-4"
+                    onClick={() => {
+                      addToCart(item.product);
+                    }}
+                  >
+                    ajouter
+                  </button>
                 </div>
               </CardItem>
             ))}
           </CartItemsContainer>
-          <div>Montant: {totalAmount}</div>
+          <div className="p-2">
+            Total : {totalAmount} €
+            <button className=" flex justify-center bg-green-500 text-black border-2 p-2">
+              Valider votre panier
+            </button>
+          </div>
         </>
       ) : (
-        <section>
-          <p>Votre panier est vide</p>
-          <p>
-            <Link to="/menu">Consulter la liste des produits</Link>
+        <section className="bg-image">
+          <p className="text-2xl text-blue-900 font-semibold text-center p-4">
+            Votre panier est vide
           </p>
         </section>
       )}
+      <p className="text-2xl text-blue-900 font-semibold text-center">
+        <Link to="/menu">Voir la liste des produits</Link>
+      </p>
     </PageLayout>
   );
 }

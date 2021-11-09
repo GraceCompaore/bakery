@@ -1,10 +1,15 @@
-export default class SignUpApi {
-  static baseUrl = `${apiUrl}/sign-up`;
+import { apiClient } from './api';
 
-  static login(signUp) {
-    return fetch(SignUpApi.baseUrl, {
-      method: 'POST',
-      body: JSON.stringify(signUp),
-    }).then((response) => response.json());
+export default class SignUpApi {
+  static signup(signUp) {
+    return apiClient
+      .post('/sign-up', JSON.stringify(signUp))
+      .then((response) => response.data);
+  }
+
+  static signupAdmin(signUp) {
+    return apiSecureClient
+      .post('/admin/sign-up', JSON.stringify(signUp))
+      .then((response) => response.data);
   }
 }

@@ -1,12 +1,18 @@
-import { apiUrl } from './api';
+import { apiClient } from './api';
 
 export default class AuthApi {
-  static baseUrl = `${apiUrl}/auth`;
-
   static login(loginDTo) {
-    return fetch(AuthApi.baseUrl, {
-      method: 'POST',
-      body: JSON.stringify(loginDTo),
-    }).then((response) => response.json());
+    return apiClient
+      .post('/auth', JSON.stringify(loginDTo))
+      .then((response) => {
+        console.log(response);
+        if (response.headers.Authorization) {
+          localStorage.setItem('Token', response.headers.Authorization);
+        }
+        return response.data;
+      })
+      .catch((reason) => {
+        console.log(reason);
+      });
   }
 }

@@ -1,31 +1,29 @@
-import { apiUrl } from './api';
+import { apiClient, apiSecureClient } from './api';
 
 export default class CommandApi {
-  static baseUrl = `${apiUrl}/command`;
+  static url = '/command';
 
   static create() {
-    return fetch(CommandApi.baseUrl, {
-      method: 'GET',
-      body: JSON.stringify(commandDto),
-    }).then((response) => response.json());
+    return apiSecureClient
+      .post(CommandApi.url, JSON.stringify(commandDto))
+      .then((response) => response.data);
   }
 
   static findAll() {
-    return fetch(CommandApi.baseUrl, { method: 'GET' }).then((response) =>
-      response.json()
-    );
+    return apiSecureClient
+      .get(CommandApi.url)
+      .then((response) => response.data);
   }
 
   static delete(commandId) {
-    return fetch(`${CommandApi.baseUrl}/${commandId}`, {
-      method: 'DELETE',
-    }).then((response) => response.json());
+    return apiSecureClient
+      .delete(`${CommandApi.url}/${commandId}`)
+      .then((response) => response.data);
   }
 
   static update(commandId, command) {
-    return fetch(`${CommandApi.baseUrl}/${commandId}`, {
-      method: 'PUT',
-      body: JSON.stringify(command),
-    }).then((response) => response.json());
+    return apiSecureClient
+      .put(`${CommandApi.url}/${commandId}`, JSON.stringify(command))
+      .then((response) => response.data);
   }
 }

@@ -135,7 +135,7 @@ function Menu() {
                 <p className="px-4">Prix: {product.price} €</p>
                 <div>
                   <button
-                    className="w-40 flex justify-center rounded-md ring bg-black text-white mx-12 my-2 hover:bg-blue-200 "
+                    className="w-20 flex justify-center bg-white text-black mx-16 border-2 rounded-md px-2"
                     onClick={() => {
                       addToCart(product);
                     }}
