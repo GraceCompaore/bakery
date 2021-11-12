@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
+import { AuthContext } from '../../core/context/AuthContext';
 
 import { CartContext } from '../../core/context/CartContext';
 import './Header.css';
@@ -7,6 +8,7 @@ import './Header.css';
 function Header() {
   const history = useHistory();
   const { cart } = useContext(CartContext);
+  const { isLogged, username, logout } = useContext(AuthContext);
   const [productCount, setProductCount] = useState(0);
 
   useEffect(() => {
@@ -61,14 +63,28 @@ function Header() {
         <div className="spacer"></div>
 
         <div className="px-8 space-x-4">
-          <button
-            className="bg-white text-black px-8 rounded-lg ring  hover:bg-blue-200"
-            onClick={() => {
-              handleGoToLoginPage();
-            }}
-          >
-            Connexion
-          </button>
+          {isLogged ? (
+            <div>
+              <span>{username}</span>
+              <button
+                className="bg-white text-black px-8 rounded-lg ring  hover:bg-blue-200"
+                onClick={() => {
+                  logout();
+                }}
+              >
+                Deconnexion
+              </button>
+            </div>
+          ) : (
+            <button
+              className="bg-white text-black px-8 rounded-lg ring  hover:bg-blue-200"
+              onClick={() => {
+                handleGoToLoginPage();
+              }}
+            >
+              Connexion
+            </button>
+          )}
 
           <NavLink activeClassName="text-white" to="/cart" className="px-8">
             <i className="fa fa-shopping-cart"></i>

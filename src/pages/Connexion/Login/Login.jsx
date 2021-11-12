@@ -1,15 +1,21 @@
-import { useState } from 'react';
-import AuthApi from '../../../core/api/auth.api';
+import { useContext, useState } from 'react';
+import { useHistory } from 'react-router';
+import { AuthContext } from '../../../core/context/AuthContext';
 
 const Login = () => {
+  const history = useHistory();
+  const { login: logUser, isLogged } = useContext(AuthContext);
+
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
 
   const submitLogin = (event) => {
     event.preventDefault();
 
-    AuthApi.login({ login, password }).then((responseData) => {
-      console.log(responseData);
+    logUser({ login, password }).then((data) => {
+      if (data) {
+        history.push('/cart');
+      }
     });
   };
 

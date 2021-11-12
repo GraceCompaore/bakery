@@ -1,4 +1,4 @@
-import { apiClient } from './api';
+import { apiClient, apiSecureClient } from './api';
 
 export default class SignUpApi {
   static signup(signUp) {

@@ -2,7 +2,9 @@ import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import PageLayout from '../../components/PageLayout';
+import { AuthContext } from '../../core/context/AuthContext';
 import { CartContext } from '../../core/context/CartContext';
+import { useHistory } from 'react-router';
 
 const CartItemsContainer = styled.section`
   display: flex;
@@ -22,6 +24,8 @@ const CardItemCover = styled.img`
 `;
 
 function Cart() {
+  const history = useHistory();
+  const { isLogged } = useContext(AuthContext);
   const { cart, removeFromCart } = useContext(CartContext);
   const [totalAmount, setTotalAmount] = useState(0);
   const { addToCart } = useContext(CartContext);
@@ -35,6 +39,14 @@ function Cart() {
       setTotalAmount(total);
     }
   }, [cart]);
+
+  const onValidCart = () => {
+    if (isLogged) {
+      // TODO: Sauvegarder le panier
+    } else {
+      history.push('/connexion');
+    }
+  };
 
   return (
     <PageLayout>
@@ -76,7 +88,12 @@ function Cart() {
           </CartItemsContainer>
           <div className="p-2">
             Total : {totalAmount} €
-            <button className=" flex justify-center bg-green-500 text-black border-2 p-2">
+            <button
+              className=" flex justify-center bg-green-500 text-black border-2 p-2"
+              onClick={() => {
+                onValidCart();
+              }}
+            >
               Valider votre panier
             </button>
           </div>

@@ -10,6 +10,7 @@ import Home from './pages/Home/index';
 import { FilterProvider } from './pages/Menu/context/FilterContext';
 import Menu from './pages/Menu/index';
 import About from './pages/About/index';
+import { AuthProvider } from './core/context/AuthContext';
 
 const GlobalStyle = createGlobalStyle`
     font-family: 'Trebuchet MS', Helvetica, sans-serif;
@@ -20,34 +21,36 @@ const App = () => {
     <React.StrictMode>
       <Router>
         <GlobalStyle />
-        <CartProvider>
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/menu">
-              <FilterProvider>
-                <Menu />
-              </FilterProvider>
-            </Route>
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route path="/contact">
-              <Contact />
-            </Route>
-            <Route path="/Connexion">
-              <ConnexionPage />
-            </Route>
-            <Route path="/cart">
-              <Cart />
-            </Route>
+        <AuthProvider>
+          <CartProvider>
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route path="/menu">
+                <FilterProvider>
+                  <Menu />
+                </FilterProvider>
+              </Route>
+              <Route path="/about">
+                <About />
+              </Route>
+              <Route path="/contact">
+                <Contact />
+              </Route>
+              <Route path="/Connexion">
+                <ConnexionPage />
+              </Route>
+              <Route path="/cart">
+                <Cart />
+              </Route>
 
-            <Route>
-              <Error />
-            </Route>
-          </Switch>
-        </CartProvider>
+              <Route>
+                <Error />
+              </Route>
+            </Switch>
+          </CartProvider>
+        </AuthProvider>
       </Router>
     </React.StrictMode>
   );

@@ -1,10 +1,17 @@
-import { useRef } from 'react';
+import { useState } from 'react';
+import SignUpApi from '../../../core/api/signup.api';
 
 const Register = () => {
+  const [login, setLogin] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   const submitRegister = (event) => {
     event.preventDefault();
 
-    // TODO: Send data to back api
+    SignUpApi.signup({ login, password, email }).then((responseData) => {
+      console.log(responseData);
+    });
   };
 
   return (
@@ -12,12 +19,16 @@ const Register = () => {
       <div className="header">Register</div>
       <form className="box">
         <div className="input-group">
-          <label htmlFor="username">Nom</label>
+          <label htmlFor="login">Nom</label>
           <input
             type="text"
-            name="username"
+            name="login"
             className="login-input"
-            placeholder="Username"
+            placeholder="Login"
+            value={login}
+            onChange={(e) => {
+              setLogin(e.target.value);
+            }}
           />
         </div>
 
@@ -28,6 +39,10 @@ const Register = () => {
             name="email"
             className="login-input"
             placeholder="Email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
           />
         </div>
 
@@ -38,6 +53,10 @@ const Register = () => {
             name="password"
             className="login-input"
             placeholder="Password"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
           />
         </div>
         <button type="button" className="login-btn" onClick={submitRegister}>

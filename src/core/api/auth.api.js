@@ -5,14 +5,15 @@ export default class AuthApi {
     return apiClient
       .post('/auth', JSON.stringify(loginDTo))
       .then((response) => {
-        console.log(response);
-        if (response.headers.Authorization) {
-          localStorage.setItem('Token', response.headers.Authorization);
+        const token = response.headers['authorization'];
+        if (token) {
+          localStorage.setItem('Token', token);
         }
-        return response.data;
+        return !!token;
       })
       .catch((reason) => {
         console.log(reason);
+        return false;
       });
   }
 }
