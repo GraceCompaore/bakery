@@ -8,6 +8,7 @@ const Login = () => {
 
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
+  const [loginError, setLoginError] = useState(false);
 
   const submitLogin = (event) => {
     event.preventDefault();
@@ -15,14 +16,21 @@ const Login = () => {
     logUser({ login, password }).then((data) => {
       if (data) {
         history.push('/cart');
+      } else {
+        setLoginError(true);
       }
     });
   };
 
   return (
-    <div className="inner-container">
+    <div className="login-container">
       <div className="header">Login</div>
       <div className="box">
+        {loginError && (
+          <div className="login-error p-2 bg-red-600 my-2 text-white  ">
+            Login et/ou mot de passe érroné(s)
+          </div>
+        )}
         <div className="input-group">
           <label htmlFor="login">Nom</label>
           <input

@@ -1,22 +1,50 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router';
 import SignUpApi from '../../../core/api/signup.api';
 
 const Register = () => {
+  const history = useHistory();
   const [login, setLogin] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [signUpError, setSignUpError] = useState(false);
+  const [signUpSuccess, setSignUpSuccess] = useState(false);
 
   const submitRegister = (event) => {
     event.preventDefault();
 
     SignUpApi.signup({ login, password, email }).then((responseData) => {
-      console.log(responseData);
+      if (responseData) {
+        setSignUpSuccess(true);
+        setSignUpError(false);
+      } else {
+        setSignUpSuccess(false);
+        setSignUpError(true);
+      }
     });
+  };
+
+  const goToLoginPage = (e) => {
+    e.preventDefault();
+    history.push('/connexion');
   };
 
   return (
     <div className="inner-container">
       <div className="header">Register</div>
+      {signUpError && (
+        <div className="login-error p-2 bg-red-600 my-2 text-white  ">
+          Une erreur s'est produite. Veuillez essayer de nouveau !
+        </div>
+      )}
+      {signUpSuccess && (
+        <div className="login-error p-2 bg-green-600 my-2 text-white  ">
+          Votre compte a été enregistré. Vous pouvez maintenant{' '}
+          <a href="#" onClick={goToLoginPage}>
+            vous connecter
+          </a>
+        </div>
+      )}
       <form className="box">
         <div className="input-group">
           <label htmlFor="login">Nom</label>
