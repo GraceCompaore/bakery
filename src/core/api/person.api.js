@@ -1,4 +1,4 @@
-import { apiClient } from './api';
+import { apiSecureClient } from './api';
 
 export default class PersonApi {
   static url = '/person';

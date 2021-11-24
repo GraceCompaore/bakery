@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import PageLayout from '../../components/PageLayout';
 import ProductApi from '../../core/api/product.api';
 import { CartContext } from '../../core/context/CartContext';
-import productListMock from '../../datas/productListMock';
 import Filter from './components/Filter';
 import { FilterContext } from './context/FilterContext';
 
@@ -45,13 +44,12 @@ function Menu() {
     ProductApi.findAll().then((data) => {
       console.log(data);
       setBaseroductList(data);
-      // setProductList(data);
+      setProductList(data);
     });
-    setProductList(productListMock);
   }, []);
 
   useEffect(() => {
-    let products = productListMock;
+    let products = baseProductList;
     products = filterByCategory(categories, products);
     products = filterByMinPrice(minPrice, products);
     products = filterByMaxPrice(maxPrice, products);

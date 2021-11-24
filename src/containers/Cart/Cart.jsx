@@ -5,6 +5,7 @@ import PageLayout from '../../components/PageLayout';
 import { AuthContext } from '../../core/context/AuthContext';
 import { CartContext } from '../../core/context/CartContext';
 import { useHistory } from 'react-router';
+import CommandApi from '../../core/api/command.api';
 
 const CartItemsContainer = styled.section`
   display: flex;
@@ -25,7 +26,7 @@ const CardItemCover = styled.img`
 
 function Cart() {
   const history = useHistory();
-  const { isLogged } = useContext(AuthContext);
+  const { isLogged, username } = useContext(AuthContext);
   const { cart, removeFromCart } = useContext(CartContext);
   const [totalAmount, setTotalAmount] = useState(0);
   const { addToCart } = useContext(CartContext);
@@ -42,7 +43,16 @@ function Cart() {
 
   const onValidCart = () => {
     if (isLogged) {
-      // TODO: Sauvegarder le panier
+      const productOrderList = cart.map((item) => ({
+        unitPrice: item.product.price,
+        quantity: item.quantity,
+        productId: item.product.id,
+      }));
+
+      CommandApi.create({
+        user: username,
+        productOrderList: productOrderList,
+      });
     } else {
       history.push('/connexion');
     }

@@ -9,12 +9,14 @@ function Footer() {
             <a href="#">Mentions Légales</a>
           </li>
           <li>
-            <a href="#">Politiques de cookies</a>
+            {' '}
+            <a href="#">Politiques de cookies</a>{' '}
           </li>
           <li>
             <a href="#">Politiques de confidentialité</a>
           </li>
           <li>
+            {' '}
             <a href="#">Conditions d'utilisation</a>
           </li>
         </ul>

@@ -10,10 +10,20 @@ const apiClient = axios.create({
 const apiSecureClient = axios.create({
   baseURL: 'http://localhost:8080',
   headers: {
-    Authorization: 'Bearer ' + localStorage.getItem('Token'),
     'Content-Type': 'application/json',
   },
 });
+
+apiSecureClient.interceptors.request.use(
+  (request) => {
+    const token = localStorage.getItem('Token');
+    if (token) {
+      request.headers['Authorization'] = `Bearer ${token}`;
+    }
+    return request;
+  },
+  (error) => Promise.reject(error)
+);
 
 apiSecureClient.interceptors.response.use(
   (response) => {

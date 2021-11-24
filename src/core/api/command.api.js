@@ -3,9 +3,9 @@ import { apiClient, apiSecureClient } from './api';
 export default class CommandApi {
   static url = '/command';
 
-  static create() {
+  static create(commandPayload) {
     return apiSecureClient
-      .post(CommandApi.url, JSON.stringify(commandDto))
+      .post(CommandApi.url, JSON.stringify(commandPayload))
       .then((response) => response.data);
   }
 

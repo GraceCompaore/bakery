@@ -1,5 +1,4 @@
 import PageLayout from '../../components/PageLayout';
-import bg_image from './bak.jpg';
 import './Home.css';
 
 function Home() {
