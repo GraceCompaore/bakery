@@ -1,5 +1,5 @@
 import emailjs, { init } from 'emailjs-com';
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 init('user_32u6RoYbe83EE0LqfkUea');
